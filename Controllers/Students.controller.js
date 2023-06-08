@@ -128,11 +128,19 @@ StudentRouter.get("/studentsid/:id", async (req,res,next)=>{
         return res.status(200).json({ students })  
 })
 StudentRouter.get("/getMentor/:mentorId",async(req,res)=>{
+  
   let id=req.params.mentorId
   console.log(id)
+  try{
   let data= await StudentModel.find({mentorId:ObjectId(id)}).toArray()
-  res.send(data)
-})
+  res.send(data)}
+  catch{res.status(500).send({
+    message:"Internal Server Error",
+    error 
+  })
+}
+    
+  })
 
 
 StudentRouter.get('/allstudents', async function(req, res, next) {
