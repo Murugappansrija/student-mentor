@@ -1,7 +1,6 @@
 const StudentRouter = require("express").Router();
-const { res } = require("..");
 const StudentModel = require('../Models/Student.model')
-// const { res } = require("../app");
+
 
 StudentRouter.get("/", function (req, res, next) {
  
